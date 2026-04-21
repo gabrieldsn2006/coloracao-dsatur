@@ -6,24 +6,41 @@ public class Main {
             );
         }
 
+        // Leitura do arquivo padronizada com a biblioteca algs4
         In in = new In(args[0]);
         Graph graph = new Graph(in);
         GraphColoringDSatur dsatur = new GraphColoringDSatur(graph);
 
-        StdOut.println("Grafo carregado:");
+        StdOut.println("========== Grafo carregado ==========");
         StdOut.println(graph);
+        StdOut.println("=====================================\n");
+
+        // Executando o algoritmo implementado
+        dsatur.color();
+
+        StdOut.println("----- Ordem de Coloração (DSatur) -----");
+        int[] order = dsatur.getColoringOrder();
+        for (int i = 0; i < order.length; i++) {
+            int v = order[i];
+            StdOut.println((i + 1) + "º colorido: " + dsatur.getLabel(v) + " (Vértice " + v + ") -> Cor Atribuída: " + dsatur.getColor(v));
+        }
         StdOut.println();
 
-        StdOut.println("TODO: implementar a execucao do DSatur.");
-        StdOut.println("TODO: exibir a ordem de coloracao.");
-        StdOut.println("TODO: exibir as cores finais de cada vertice.");
-        StdOut.println("TODO: exibir o total de cores utilizadas.");
-        StdOut.println("TODO: validar se a coloracao produzida eh valida.");
+        StdOut.println("----- Cores Finais (Por Estado) -----");
+        for (int v = 0; v < graph.V(); v++) {
+            StdOut.println(dsatur.getLabel(v) + " -> Cor " + dsatur.getColor(v));
+        }
+        StdOut.println();
 
-        // Exemplo de chamadas esperadas apos a implementacao:
-        // dsatur.color();
-        // int[] order = dsatur.getColoringOrder();
-        // int totalColors = dsatur.getColorCount();
-        // boolean valid = dsatur.isValidColoring();
+        StdOut.println("Total de cores utilizadas na resolução: " + dsatur.getColorCount());
+        StdOut.println();
+
+        // Validar e informar se a coloração produzida é válida
+        boolean valid = dsatur.isValidColoring();
+        if (valid) {
+            StdOut.println("[SUCESSO] A coloração produzida é VÁLIDA. Nenhum estado adjacente possui a mesma cor.");
+        } else {
+            StdOut.println("[FALHA] A coloração é INVÁLIDA. Foram detectados vizinhos compartilhando a mesma cor.");
+        }
     }
 }
