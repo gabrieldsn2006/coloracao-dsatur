@@ -129,17 +129,17 @@ public class GraphColoringDSatur {
     }
 
     public int getColor(int vertex) {
-        if (!isColored) throw new IllegalStateException("Execute color() antes de pedir cores.");
+        if (!isColored) throw new IllegalStateException("Execute .color() antes de pedir cores.");
         return colors[vertex];
     }
 
     public int getColorCount() {
-        if (!isColored) throw new IllegalStateException("Execute color() antes.");
+        if (!isColored) throw new IllegalStateException("Execute .color() antes.");
         return colorCount;
     }
 
     public int[] getColoringOrder() {
-        if (!isColored) throw new IllegalStateException("Execute color() antes.");
+        if (!isColored) throw new IllegalStateException("Execute .color() antes.");
         return coloringOrder;
     }
 
@@ -150,7 +150,7 @@ public class GraphColoringDSatur {
         for (int v = 0; v < graph.V(); v++) {
             for (int w : graph.adj(v)) {
                 if (colors[v] == colors[w]) {
-                    return false; // Conflito encontrado!
+                    return false; // Conflito encontrado
                 }
             }
         }
