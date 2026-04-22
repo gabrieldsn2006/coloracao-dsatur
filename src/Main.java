@@ -1,5 +1,15 @@
 public class Main {
     public static void main(String[] args) {
+//        cores:
+//        \u001B[30m → preto
+//        \u001B[31m → vermelho
+//        \u001B[32m → verde
+//        \u001B[33m → amarelo
+//        \u001B[34m → azul
+//        \u001B[35m → roxo
+//        \u001B[36m → ciano
+//        \u001B[37m → branco
+
         if (args.length < 1) {
             throw new IllegalArgumentException(
                     "informe o arquivo de entrada. Ex.: java Main ../dados/brasil.txt"
