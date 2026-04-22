@@ -21,7 +21,7 @@ public class Main {
         Graph graph = new Graph(in);
         GraphColoringDSatur dsatur = new GraphColoringDSatur(graph);
 
-        StdOut.println("========== Grafo carregado ==========");
+        StdOut.println("\\u001B[34m ========== Grafo carregado ==========");
         StdOut.println(graph);
         StdOut.println("=====================================\n");
 
