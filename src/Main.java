@@ -10,6 +10,10 @@ public class Main {
 //        \u001B[36m → ciano
 //        \u001B[37m → branco
 
+        String azul = "\u001B[34m";
+        String branco = "\u001B[37m";
+        System.out.println(azul + "meu texto" + branco);
+
         if (args.length < 1) {
             throw new IllegalArgumentException(
                     "informe o arquivo de entrada. Ex.: java Main ../dados/brasil.txt"
