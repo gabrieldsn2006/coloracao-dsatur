@@ -28,27 +28,33 @@ T5/
 
 ## Compilacao
 
-No diretorio `src`, execute:
+Execute o comando a seguir para entrar no diretório /src:
 
 ```bash
-javac Main.java GraphColoringDSatur.java Graph.java Bag.java Stack.java In.java StdIn.java StdOut.java
+cd src
+```
+
+Execute (no src) o comando a seguir para compilar o código:
+
+```bash
+javac -d ../out *.java
 ```
 
 ## Execucao
 
-Entrada oficial:
+Comando para executar o programa com a entrada oficial:
 
 ```bash
-java Main ../dados/brasil.txt
+java -cp ../out Main ../dados/brasil.txt
 ```
 
-Fixtures de teste:
+Comandos para executar o programa com as fixtures de teste:
 
 ```bash
-java Main ../dados/teste-triangulo.txt
-java Main ../dados/teste-caminho4.txt
-java Main ../dados/teste-ciclo4.txt
-java Main ../dados/teste-ciclo5.txt
+java -cp ../out Main ../dados/teste-triangulo.txt
+java -cp ../out Main ../dados/teste-caminho4.txt
+java -cp ../out Main ../dados/teste-ciclo4.txt
+java -cp ../out Main ../dados/teste-ciclo5.txt
 ```
 
 ## Video
