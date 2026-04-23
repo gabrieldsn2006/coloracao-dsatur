@@ -3,10 +3,10 @@
 Implementacao em **Java** da base inicial do Trabalho Pratico 5 da disciplina
 **Resolucao de Problemas com Grafos**.
 
-[//]: # (## Video)
+## Video
 
-[//]: # ()
-[//]: # (Link do video explicativo: PREENCHER)
+
+Link do video explicativo: https://youtu.be/RtajTBTqYJc
 
 ## Estrutura
 
