@@ -3,6 +3,11 @@
 Implementacao em **Java** da base inicial do Trabalho Pratico 5 da disciplina
 **Resolucao de Problemas com Grafos**.
 
+## Video
+
+
+Link do video explicativo: https://youtu.be/RtajTBTqYJc
+
 ## Estrutura
 
 ```text
@@ -56,7 +61,3 @@ java -cp ../out Main ../dados/teste-caminho4.txt
 java -cp ../out Main ../dados/teste-ciclo4.txt
 java -cp ../out Main ../dados/teste-ciclo5.txt
 ```
-
-## Video
-
-Link do video explicativo: PREENCHER
