@@ -1,18 +1,18 @@
 public class Main {
-    public static void main(String[] args) {
-//        cores:
-//        \u001B[30m → preto
-//        \u001B[31m → vermelho
-//        \u001B[32m → verde
-//        \u001B[33m → amarelo
-//        \u001B[34m → azul
-//        \u001B[35m → roxo
-//        \u001B[36m → ciano
-//        \u001B[37m → branco
+    // Reset
+    public static final String RESET = "\u001B[0m";
 
-        String azul = "\u001B[34m";
-        String branco = "\u001B[37m";
-        System.out.println(azul + "meu texto" + branco);
+    // Cores
+    public static final String PRETO = "\u001B[30m";
+    public static final String VERMELHO = "\u001B[31m";
+    public static final String VERDE = "\u001B[32m";
+    public static final String AMARELO = "\u001B[33m";
+    public static final String AZUL = "\u001B[34m";
+    public static final String ROXO = "\u001B[35m";
+    public static final String CIANO = "\u001B[36m";
+    public static final String BRANCO = "\u001B[37m";
+
+    public static void main(String[] args) {
 
         if (args.length < 1) {
             throw new IllegalArgumentException(
@@ -25,7 +25,7 @@ public class Main {
         Graph graph = new Graph(in);
         GraphColoringDSatur dsatur = new GraphColoringDSatur(graph);
 
-        StdOut.println("\\u001B[34m ========== Grafo carregado ==========");
+        StdOut.println("========== Grafo carregado ==========");
         StdOut.println(graph);
         StdOut.println("=====================================\n");
 
@@ -36,14 +36,13 @@ public class Main {
         int[] order = dsatur.getColoringOrder();
         for (int i = 0; i < order.length; i++) {
             int v = order[i];
-            StdOut.println((i + 1) + "º colorido: " + dsatur.getLabel(v) + " (Vértice " + v + ") -> Cor Atribuída: " + dsatur.getColor(v));
+            StdOut.println(String.format("%2dº : %s (v%2d) -> %sCOR %s%s",
+                    i+1, dsatur.getLabel(v), v,
+                    getAnsiColor(dsatur.getColor(v)), dsatur.getColor(v), RESET));
         }
         StdOut.println();
 
-        StdOut.println("----- Cores Finais (Por Estado) -----");
-        for (int v = 0; v < graph.V(); v++) {
-            StdOut.println(dsatur.getLabel(v) + " -> Cor " + dsatur.getColor(v));
-        }
+        printColoredAdjacencyList(graph, dsatur);
         StdOut.println();
 
         StdOut.println("Total de cores utilizadas na resolução: " + dsatur.getColorCount());
@@ -55,6 +54,41 @@ public class Main {
             StdOut.println("[SUCESSO] A coloração produzida é VÁLIDA. Nenhum estado adjacente possui a mesma cor.");
         } else {
             StdOut.println("[FALHA] A coloração é INVÁLIDA. Foram detectados vizinhos compartilhando a mesma cor.");
+        }
+    }
+
+    public static void printColoredAdjacencyList(Graph graph, GraphColoringDSatur dsatur) {
+        StdOut.println("\n===== Lista de Adjacência Colorida =====");
+
+        for (int v = 0; v < graph.V(); v++) {
+
+            String corV = getAnsiColor(dsatur.getColor(v));
+            String vertice = corV + dsatur.getLabel(v) + RESET;
+
+            StdOut.print(vertice + " : ");
+
+            for (int w : graph.adj(v)) {
+                String corW = getAnsiColor(dsatur.getColor(w));
+                String vizinho = corW + dsatur.getLabel(w) + RESET;
+
+                StdOut.print(vizinho + " ");
+            }
+
+            StdOut.println();
+        }
+
+        StdOut.println("========================================\n");
+    }
+
+    public static String getAnsiColor(int color) {
+        switch (color) {
+            case 1: return VERMELHO;
+            case 2: return VERDE;
+            case 3: return AMARELO;
+            case 4: return AZUL;
+            case 5: return ROXO;
+            case 6: return CIANO;
+            default: return BRANCO;
         }
     }
 }
