@@ -1,4 +1,4 @@
-# T5 - Coloracao de Grafos com DSatur
+﻿# T5 - Coloracao de Grafos com DSatur
 
 Implementacao em **Java** da base inicial do Trabalho Pratico 5 da disciplina
 **Resolucao de Problemas com Grafos**.
@@ -52,6 +52,11 @@ Comando para executar o programa com a entrada oficial:
 ```bash
 java -cp ../out Main ../dados/brasil.txt
 ```
+> **Obs. (PowerShell):** Caso os acentos e caracteres especiais não apareçam corretamente no terminal, execute o comando abaixo antes de rodar o programa para forçar o encoding UTF-8:
+> ```bash
+> [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+> ```
+
 
 Comandos para executar o programa com as fixtures de teste:
 

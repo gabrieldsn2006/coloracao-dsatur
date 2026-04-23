@@ -16,7 +16,7 @@ public class Main {
 
         if (args.length < 1) {
             throw new IllegalArgumentException(
-                    "informe o arquivo de entrada. Ex.: java Main ../dados/brasil.txt"
+                    "informe o arquivo de entrada. Ex.: java -cp ../out Main ../dados/brasil.txt"
             );
         }
 
